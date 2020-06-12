@@ -1,5 +1,8 @@
 # Librería para manejo de fecha y hora en python
 from datetime import datetime, date, time, timedelta
+import locale
+
+locale.setlocale(locale.LC_ALL, 'es_MX.UTF-8')
 
 # Mostrar la fecha y la hora actual del sistema
 date_and_time = datetime.now()
@@ -25,7 +28,7 @@ if hora1 > hora2:
 else:
     print('La segunda hora es mayor')
 
-# Obtener sólo la fecha actual
+# # Obtener sólo la fecha actual
 fecha = date.today()
 print(fecha)
 fecha2 = date(2020, 4, 8)
@@ -35,10 +38,11 @@ if fecha > fecha2:
 else:
     print('La segunda fecha es mayor')
 
-# Agregar días a una fecha
-nueva_fecha = fecha - timedelta(weeks=2)
+# # Agregar días/semanas a una fecha
+nueva_fecha = fecha + timedelta(weeks=52, days=20)
 print(nueva_fecha)
 
-# Formatos de fechas/horas
-print(fecha.strftime('%d/%m/%Y'))
-print(date_and_time.strftime('%H:%M'))
+# # Formatos de fechas/horas
+print(fecha.strftime('%d-%m-%Y Días transcurridos: %j, Semanas transcurridas: %W'))
+print(fecha.strftime('%A, %d de %B de %Y'))
+print(date_and_time.strftime('%I:%M:%S %p'))
